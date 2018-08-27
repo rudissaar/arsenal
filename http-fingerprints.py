@@ -11,6 +11,10 @@ Dependencies:
     * python2
         # Debian/Ubuntu: apt-get install python
         # Fedora: dnf install python
+
+    * requests
+        # Debian/Ubuntu: apt-get install python-requests
+        # Fedora: dnf install python2-requests
 '''
 
 HEADERS = ['Server', 'Date', 'Via', 'X-Powered-By', 'X-Country-Code']
@@ -55,6 +59,8 @@ if bool(URLS):
                 result = response.headers[header]
                 print '> Found header: ' + header + ': ' + result
                 found = header + ',' + result
+            except KeyboardInterrupt:
+                sys.exit(0)
             except:
                 pass
 

