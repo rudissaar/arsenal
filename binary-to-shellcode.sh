@@ -16,7 +16,7 @@ if [[ ! -f ${BINARY} ]]; then
     exit 1
 fi
 
-for i in $(objdump -d ${BINARY} -M intel | grep '^ ' | cut -f2)
+for i in $(objdump -d ${BINARY} | grep '^ ' | cut -f2)
 do
     echo -n "\x${i}"
 done
