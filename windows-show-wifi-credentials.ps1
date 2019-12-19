@@ -14,11 +14,11 @@ ForEach ($Line in $Output)
     }
 }
 
-ForEach ($ProfileName in $ProfileNames)
+ForEach ($ProfileName In $ProfileNames)
 {
     $Output = (netsh wlan show profile name="$ProfileName" key=clear)
     
-    ForEach ($Line in $Output) {
+    ForEach ($Line In $Output) {
         $Line = $Line -Match 'Key Content\s+:\s+(.+)$'
 
         If ($Line) {
